@@ -1,0 +1,39 @@
+{% extends 'main.html' %}
+
+{% block content %}
+{% load static %}
+
+    <div class="centered-container">
+        <div class="drive-details">
+            <h2>{{ drive.title }}</h2>
+            <div class="logo-container">
+                <img src="{{ drive.company_logo.url }}" alt="Company Logo" class="logo">
+            </div>            
+            <p><strong>Company Name:</strong> {{ drive.company_name }}</p>
+            <p><strong>Date:</strong> {{ drive.date }}</p>
+            <p><strong>About:</strong> {{ drive.content }}</p>
+            <p><strong>Bond:</strong> {{ drive.Bond }}</p>
+            <p><strong>Industry Type:</strong> {{ drive.industry_type }}</p>
+
+            <p><strong>Departments:</strong>
+                {% for department in drive.department.all %}
+                    {{ department.name }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </p>
+            
+            <p><strong>Job Role:</strong> {{ drive.job_role }}</p>
+            <p><strong>Job Location:</strong> {{ drive.job_location }}</p>
+            <p><strong>Job Eligibility:</strong> {{ drive.job_eligibility }}</p>
+            <p><strong>Selection Process:</strong> {{ drive.selection_process }}</p>
+            <p><strong>Job CTC:</strong> {{ drive.job_CTC }}</p>
+
+            <div class="button-container">
+                <a href="{% url 'all-drives' %}" class="link">All Drives</a>
+                <a href="{% url 'update-drive' drive.drive_id %}" class="link">Update</a>
+                <a href="{% url 'delete-drive' drive.drive_id %}" class="link">Delete</a>
+                <a href="#" class="link">Download</a>
+            </div>       
+        </div>
+    </div>
+
+{% endblock content %}

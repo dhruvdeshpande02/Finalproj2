@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Registration</title>
+</head>
+<body>
+  <h1>Register as a Student</h1>
+
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ user_form.as_p }}
+    {{ student_form.as_p }}
+    <button type="submit">Register</button>
+  </form>
+</body>
+</html>

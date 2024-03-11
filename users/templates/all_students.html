@@ -1,0 +1,53 @@
+{% extends 'main.html' %}
+{% block content %} 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Students</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #848484;
+        }
+    </style>
+</head>
+<body>
+    <h1>All Students</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>PRN</th>
+                <th>First Name</th>
+                <th>Middle Name</th>
+                <th>Last Name</th>
+                <th>Date of Birth</th>
+                <th>Gender</th>
+                <!-- Add more table headers for other student attributes -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.PRN }}</td>
+                <td>{{ student.FIRST_NAME }}</td>
+                <td>{{ student.MIDDLE_NAME }}</td>
+                <td>{{ student.LAST_NAME }}</td>
+                <td>{{ student.DOB }}</td>
+                <td>{{ student.GENDER }}</td>
+                <!-- Add more table cells for other student attributes -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+{% endblock %}

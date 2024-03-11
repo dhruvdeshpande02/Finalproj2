@@ -1,0 +1,22 @@
+/* Reset CSS (optional, consider using a CSS reset library) */
+* {
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Main container */
+
+
+/* Main content area */
+.container {
+    padding-top: 200px;
+    margin-top: 400px;
+    /* Adjust padding as needed */
+    /* Other styles for the content area */
+}
+
+/* Sidebar */

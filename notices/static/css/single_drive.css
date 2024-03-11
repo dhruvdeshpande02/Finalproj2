@@ -1,0 +1,96 @@
+/*body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}*/
+
+.centered-container {
+    font-family: Arial, sans-serif;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 22cm;
+    /* Start from center */
+    transform: translateX(-50%);
+    padding: 20px;
+    width: 100%;
+    /* Adjust width to compensate for margin and padding */
+    max-width: 800px;
+    /* Adjust maximum width */
+    overflow-y: auto;
+    /* Enable vertical scrolling if content exceeds viewport */
+}
+
+h2 {
+    text-align: center;
+}
+
+.drive-details {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 10px 10px 200px rgba(0, 0, 0, 0.9);
+    overflow: hidden;
+    /* Prevent box shadow from overflowing */
+    box-sizing: border-box;
+    /* Include padding and border in the element's total width and height */
+    width: auto;
+    /* Allow drive-details to expand as needed */
+    align-items: start;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    /* Center the logo horizontally */
+    margin-bottom: 20px;
+}
+
+.logo {
+    max-width: 100%;
+    /* Ensure the logo fits the container */
+    max-height: 200px;
+    /* Limit the maximum height of the logo */
+
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    text-decoration: none;
+    color: white;
+
+}
+
+.link {
+    display: inline-block;
+    padding: 10px;
+    padding: 8px 16px;
+    background-color: black;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    gap: 20px;
+}
+
+.link:hover {
+    background-color: grey;
+    color: white;
+    cursor: pointer;
+}
+
+.detail-item p {
+
+    margin: 10px 0;
+    /* Adjust margin between detail items */
+}
+
+p {
+    text-align: start;
+}

@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main Template</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/trailcard.css' %}" /> 
+  <link rel="stylesheet" type="text/css" href="{% static 'css/delete_activity.css' %}" /> 
+
+   <link rel="stylesheet" type="text/css" href="{% static 'css/create_drive.css' %}" /> 
+   <link rel="stylesheet" type="text/css" href="{% static 'css/single_drive.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}" /> 
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"> 
+
+  <!-- JavaScript -->
+  <script src="{% static 'js/CreateDrive.js' %}"></script>
+  <script src="{% static 'js/delete_activity.js' %}"></script>
+
+</head>
+<body>
+  {% include 'sidebar.html' %}
+ 
+{% block content %} {% endblock %} 
+  
+</body>
+</html> 

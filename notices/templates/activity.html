@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+
+{% block content %}
+{% load static %}
+
+    <div class="centered-container">
+        <div class="drive-details">
+            <h2>{{ activity.title }}</h2>
+            <div class="logo-container">
+                <img src="{{ activity.company_logo.url }}" alt="Company Logo" class="logo">
+            </div>            
+            <p><strong>Company Name:</strong> {{ activity.company_name }}</p>
+            <p><strong>Date:</strong> {{ activity.activity_date }}</p>
+            <p><strong>About:</strong> {{ activity.content }}</p>
+            <p><strong>Industry Type:</strong> {{ activity.industry_type }}</p>
+
+            <p><strong>Departments:</strong>
+                {% for department in activity.department.all %}
+                    {{ department.name }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </p>
+            
+
+            <div class="button-container">
+                <a href="{% url 'activities' %}" class="link">All activities</a>
+                <a href="{% url 'update-activity' activity.activity_id %}" class="link">Update</a>
+                <a href="{% url 'delete-activity' activity.activity_id %}" class="link">Delete</a>
+                <a href="#" class="link">Download</a>
+            </div>       
+        </div>
+    </div>
+
+{% endblock content %}

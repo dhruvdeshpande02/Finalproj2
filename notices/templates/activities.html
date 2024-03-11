@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="card-container"> <!-- Correct class name to match CSS -->
+  {% for activity in activities %}
+  <div class="card">
+    <div class="img">
+      <img src="{{ activity.company_logo.url }}" alt="Company Logo" />
+    </div>
+    <div class="all-text">
+      <div class="name">{{ activity.title }}</div>
+      <div class="all_drives">Industry Type: {{ activity.industry_type }}</div>   
+      <div class="text">Date: {{ activity.activity_date }}</div>
+      <div class="btn">
+        <a href="{% url 'activity' activity.activity_id %}">Read more</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

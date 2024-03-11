@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="card-container"> <!-- Correct class name to match CSS -->
+  {% for drive in alldrives %}
+  <div class="card">
+    <div class="img">
+      <img src="{{ drive.company_logo.url }}" alt="Company Logo" />
+    </div>
+    <div class="all-text">
+      <div class="name">{{ drive.title }}</div>
+      <div class="all_drives">Industry Type: {{ drive.industry_type }}</div>
+      <div class="text">Date: {{ drive.date }}</div>
+      <div class="btn">
+        <a href="{% url 'drive' drive.drive_id %}">Read more</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
