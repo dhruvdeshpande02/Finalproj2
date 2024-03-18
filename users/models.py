@@ -5,18 +5,17 @@ from django.contrib.auth.models import AbstractUser
 
 class CustomUser(AbstractUser):
     USER_CHOICES = [
-        ('S', 'Student'),
-        ('C', 'Coordinator'),
-        ('T-O', 'TNP-Office'),
+        ('Student', 'Student'),
+        ('Coordinator', 'Coordinator'),
+        ('TNP-Office', 'TNP-Office'),
     ]
-    user_type = models.CharField(max_length=10, choices=USER_CHOICES,default ='Student')
-
+    user_type = models.CharField(max_length=15, choices=USER_CHOICES,default ='Student')
+    username = models.CharField(max_length=10,null=True,blank=True)
     # Specify email as the USERNAME_FIELD
     USERNAME_FIELD = 'email'
     
     # Remove email from REQUIRED_FIELDS
     REQUIRED_FIELDS = []
-
     # Ensure email is marked as unique
     email = models.EmailField(unique=True)
 
@@ -33,28 +32,38 @@ class Student(models.Model):
         ('O', 'Other'),
     ]
     YEAR_CHOICES = [
-        ('3rd year', '3rd year'),
-        ('Btech', 'Btech'),
+        ('2020', '2020'),
+        ('2021', '2021'),
+        ('2022', '2022'),
+        ('2023', '2023'),
+        ('2024', '2024'),
+        ('2025', '2025'),
+        ('2026', '2026'),
+        ('2027', '2027'),
+        ('2028', '2028'),
+        ('2029', '2029'),
+        ('2030', '2030'),
+
     ]
 
     FIRST_NAME = models.CharField(max_length=255)
     MIDDLE_NAME = models.CharField(max_length=255)
     LAST_NAME= models.CharField(max_length=255)
     PRN = models.PositiveIntegerField(unique=True)
-    DOB = models.DateField()
-    GENDER = models.CharField(max_length=10, choices=GENDER_CHOICES)
-    EMAIL = models.EmailField(unique=True)
-    PERSONAL_EMAIL = models.EmailField(unique=True)
-    AGE = models.PositiveIntegerField()
-    MOBILE_NO = models.PositiveIntegerField()
-    ALT_Mobile_NO = models.PositiveIntegerField()
-    LOCAL_ADDRS = models.CharField(max_length=255)
-    PERM_ADDRS = models.CharField(max_length=255)
-    Native_Place = models.CharField(max_length=255)
-    X_Percentage = models.DecimalField(max_digits=5, decimal_places=2)
+    DOB = models.DateField(null=True, blank=True)
+    GENDER = models.CharField(max_length=10, choices=GENDER_CHOICES, null=True, blank=True)
+    EMAIL = models.EmailField(unique=True, null=True, blank=True)
+    PERSONAL_EMAIL = models.EmailField(unique=True, null=True, blank=True)
+    AGE = models.PositiveIntegerField(null=True, blank=True)
+    MOBILE_NO = models.PositiveIntegerField(null=True, blank=True)
+    ALT_Mobile_NO = models.PositiveIntegerField(null=True, blank=True)
+    LOCAL_ADDRS = models.CharField(max_length=255, null=True, blank=True)
+    PERM_ADDRS = models.CharField(max_length=255, null=True, blank=True)
+    Native_Place = models.CharField(max_length=255, null=True, blank=True)
+    X_Percentage = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
     Xth_marksheet = models.FileField(upload_to='images/documents/', null=True, blank=True)
-    X_year_of_passing = models.PositiveIntegerField()
-    X_board = models.CharField(max_length=255)
+    X_year_of_passing = models.PositiveIntegerField(null=True, blank=True)
+    X_board = models.CharField(max_length=255, null=True, blank=True)
     XIIth_marksheet = models.FileField(upload_to='images/documents/', null=True, blank=True)
     XII_Percentage = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
     XII_year_of_passing = models.PositiveIntegerField(null=True, blank=True)
@@ -66,21 +75,21 @@ class Student(models.Model):
     Diploma_year_of_passing = models.PositiveIntegerField(null=True, blank=True)
     Diploma_college = models.CharField(max_length=255, null=True, blank=True)
     Diploma_branch = models.CharField(max_length=255, null=True, blank=True)
-    Admission_Type = models.CharField(max_length=255)
-    YEAR = models.CharField(max_length=10, choices=YEAR_CHOICES )
-    department = models.ForeignKey(Department, on_delete=models.SET_NULL, null=True)
-    Engg_year_of_passing = models.PositiveIntegerField()
-    SEM_1_sgpa = models.DecimalField(max_digits=4, decimal_places=2)
+    Admission_Type = models.CharField(max_length=255, null=True, blank=True)
+    YEAR_CHOICES = [('2024', '2024')]  # Assuming YEAR_CHOICES is defined elsewhere
+    Pass_out_Year = models.CharField(max_length=10, choices=YEAR_CHOICES, default='2024', null=True, blank=True)
+    department = models.ForeignKey(Department, on_delete=models.SET_NULL, null=True)   
+    SEM_1_sgpa = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True)
     sem1_marksheet = models.FileField(upload_to='images/documents/', null=True, blank=True)
-    SEM_2_sgpa = models.DecimalField(max_digits=4, decimal_places=2)
+    SEM_2_sgpa = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True)
     sem2_marksheet = models.FileField(upload_to='images/documents/', null=True, blank=True)
-    SEM_3_sgpa = models.DecimalField(max_digits=4, decimal_places=2)
+    SEM_3_sgpa = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True)
     sem3_marksheet = models.FileField(upload_to='images/documents/', null=True, blank=True)
-    SEM_4_sgpa = models.DecimalField(max_digits=4, decimal_places=2)
+    SEM_4_sgpa = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True)
     sem4_marksheet = models.FileField(upload_to='images/documents/', null=True, blank=True)
-    SEM_5_sgpa = models.DecimalField(max_digits=4, decimal_places=2)
+    SEM_5_sgpa = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True)
     sem5_marksheet = models.FileField(upload_to='images/documents/', null=True, blank=True)
-    SEM_6_sgpa = models.DecimalField(max_digits=4, decimal_places=2)
+    SEM_6_sgpa = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True)
     sem6_marksheet = models.FileField(upload_to='images/documents/', null=True, blank=True)
     SEM_7_sgpa = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True)
     sem7_marksheet = models.FileField(upload_to='images/documents/', null=True, blank=True)
@@ -88,15 +97,14 @@ class Student(models.Model):
     sem8_marksheet = models.FileField(upload_to='images/documents/', null=True, blank=True)
     AVG_TILL_SEM_cgpa = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
     AVG_TILL_SEM_percentage = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
-    Live_backlogs = models.PositiveIntegerField()
-    Dead_backlogs = models.CharField(max_length=255)
-    Year_gap = models.CharField(max_length=255)
-    Preference_1 = models.CharField(max_length=255)
-    Preference_2 = models.CharField(max_length=255)
-    Preference_3 = models.CharField(max_length=255)
-    Placed = models.CharField(max_length=255)
-    Profile_photo = models.ImageField(upload_to='images/profiles/')
-    
+    Live_backlogs = models.PositiveIntegerField(null=True, blank=True)
+    Dead_backlogs = models.CharField(max_length=255, null=True, blank=True)
+    Year_gap = models.CharField(max_length=255, null=True, blank=True)
+    Preference_1 = models.CharField(max_length=255, null=True, blank=True)
+    Preference_2 = models.CharField(max_length=255, null=True, blank=True)
+    Preference_3 = models.CharField(max_length=255, null=True, blank=True)
+    Placed = models.CharField(max_length=255, null=True, blank=True)
+    Profile_photo = models.ImageField(upload_to='images/profiles/', null=True, blank=True)
 
     def calculate_average_and_percentage(self):
         sem_sgpa_fields = [self.SEM_1_sgpa, self.SEM_2_sgpa, self.SEM_3_sgpa, self.SEM_4_sgpa, self.SEM_5_sgpa, self.SEM_6_sgpa, self.SEM_7_sgpa, self.SEM_8_sgpa]
