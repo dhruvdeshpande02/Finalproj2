@@ -1,0 +1,32 @@
+/* Reset CSS (optional, consider using a CSS reset library) */
+* {
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+
+}
+
+/* Main container */
+
+
+/* Main content area */
+.container {
+    padding-top: 200px;
+    margin-top: 400px;
+    /* Adjust padding as needed */
+    /* Other styles for the content area */
+}
+
+/* Sidebar */
+@media only screen and (min-width: 769px) and (max-width: 1200px) {
+    /* Styles specific to medium and large laptops */
+    /* Adjustments for medium and large laptops go here */
+
+    /* Example of adjustments for medium and large laptops */
+    .container {
+        width: 70%;
+    }
+}

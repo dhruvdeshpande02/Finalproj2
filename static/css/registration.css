@@ -1,0 +1,111 @@
+body {
+
+    background-image: url("static/images/blueimg.jpg");
+    background-size: cover;
+}
+
+.background-wrapper {
+    background-color: rgba(105, 104, 104, 0.611);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.title-box {
+    background-color: rgba(44, 58, 60, 0.14);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 20px;
+    width: fit-content;
+    margin: 0 auto;
+    /* Center horizontally */
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+
+.form-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    /* Add margin to separate the button from the title */
+}
+
+
+.reg_container {
+    font-family: Arial, sans-serif;
+    width: 100%;
+    /* Adjust width as needed */
+    max-width: 1100px;
+    /* Adjust maximum width as needed */
+    margin-top: 60px;
+    margin-bottom: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.9);
+    /* Increased shadow */
+
+}
+
+
+
+.reg_container form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.reg-form-group {
+    flex-basis: calc(50% - 10px);
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.reg-form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.reg-form-group input,
+.reg-form-group select,
+.reg-form-group textarea {
+    width: calc(100%-5px);
+    /* Adjust width and gap as needed */
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    border-width: 1px;
+    flex-grow: 1;
+    background-color: rgba(118, 118, 99, 0.336);
+}
+
+.reg-form-group input:last-child,
+.reg-form-group select:last-child,
+.reg-form-group textarea:last-child {
+    margin-right: 0;
+    /* Remove right margin for the last field */
+}
+
+.register-btn {
+    width: 100%;
+    text-align: center;
+}
+
+.register-btn button {
+    padding: 10px 20px;
+    background-color: rgba(176, 224, 230, 0.704);
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.register-btn button:hover {
+    background-color: grey;
+}
