@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/table.css' %}" /> 
+
+    <title>Document</title>
+</head>
+<body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+
+</head>
+<body>
+    <h1>COORDINATORS</h1>
+    <table>
+        <thead>
+            <tr>
+
+                <th>Coordinator ID </th>
+                <th>Name</th>
+          
+                <th>Phone No </th>
+                <th>Email </th>
+  
+                <th>Department</th>
+                <th>Personal Email</th>
+
+                <th>Institution</th>
+                <!-- Add more table headers for other student attributes -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for coordinator in coordinators %}
+            <tr>
+              <td>{{ coordinator.C_ID }}</td>
+              <td>{{ coordinator.NAME }}</td>
+              <td>{{ coordinator.PHONE_NO }}</td>
+              <td>{{ coordinator.EMAIL}}</td>
+              <td>{{ coordinator.department}}</td> 
+             <td>{{ coordinator.PERSONAL_EMAIL }}</td>
+              <td>{{ coordinator.INSTITUTE }}</td>
+             >
+        
+              </tr>
+              {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>

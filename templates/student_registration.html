@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration</title>
+  <link rel="stylesheet" href="{% static 'css/registration.css' %}">
+</head>
+<body>
+  <div class="background-wrapper">
+    <div class="reg_container">
+      <div class="title-box">
+        <h2>Register Yourself Here</h2>
+      </div>
+      <form method="POST">
+        {% csrf_token %}
+        {% for field in user_form %}
+        <div class="reg-form-group">
+          <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+          {{ field }}
+        
+        </div>
+        {% endfor %}
+        {% for field in student_form %}
+        <div class="reg-form-group">
+          <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+          {{ field }}
+        </div>
+        {% endfor %}
+        <div class="register-btn">
+          <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

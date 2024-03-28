@@ -1,0 +1,29 @@
+
+{% extends 'main.html' %}
+{% block content %} 
+
+<table>
+    <tr>
+        <th>Type</th>
+        <th>Title</th>
+        <th>Date Of Application</th>
+    </tr>
+    <!-- Add rows for data here -->
+    {% for application in applied_activities %}
+    <tr>
+        <td>ACTIVITY</td>
+        <td><a href="{% url 'activity' application.activity.pk %}">{{ application.activity.title }}</a></td>
+        <td>{{ application.applied_date }}</td>
+    </tr>
+    {% endfor %}
+
+    {% for application in applied_drives %}
+    <tr>
+        <td>DRIVE</td>
+        <td><a href="{% url 'drive' application.drive.pk %}">{{ application.drive.title }}</a></td>
+        <td>{{ application.applied_date }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
