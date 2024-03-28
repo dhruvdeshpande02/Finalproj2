@@ -6,7 +6,7 @@ from .models import Drive,Activity,Department
 class DriveForm(forms.ModelForm):
     class Meta:
         model = Drive
-        fields = ['title', 'company_name', 'company_logo', 'date', 'content', 'Bond', 'industry_type', 'department', 'job_role', 'job_location', 'job_eligibility', 'selection_process', 'job_CTC']
+        fields = '__all__'
 
         widgets = {
             'department': forms.CheckboxSelectMultiple()

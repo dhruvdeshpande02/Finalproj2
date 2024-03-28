@@ -5,11 +5,26 @@
 
     <div class="centered-container">
         <div class="drive-details">
-            <h2>{{ drive.title }}</h2>
+
+            <header>
+               
+                <header>
+                    <h1>MGM University</h1>
+                    <h2 class="unbold">Chhatrapati Sambhajinagar</h2>
+                    <h2>Training and Placement Department</h2>
+                    <img src="{% static 'images/header.jpg' %}" alt="Logo" class="header-logo">
+                    <p class="clg_name"> Jawaharlal Nehru Engineering College<p>
+
+                <hr>
+                </header>
+
+            </header>
+
+            <h2 class="title">Campus Placement Drive by: {{ drive.company_name }}</h2>
             <div class="logo-container">
                 <img src="{{ drive.company_logo.url }}" alt="Company Logo" class="logo">
             </div>            
-            <p><strong>Company Name:</strong> {{ drive.company_name }}</p>
+            <p><strong>Reference Number:</strong> {{ drive.Reference_no }}</p>
             <p><strong>Date:</strong> {{ drive.date }}</p>
             <p><strong>About:</strong> {{ drive.content }}</p>
             <p><strong>Bond:</strong> {{ drive.Bond }}</p>
@@ -26,14 +41,46 @@
             <p><strong>Job Eligibility:</strong> {{ drive.job_eligibility }}</p>
             <p><strong>Selection Process:</strong> {{ drive.selection_process }}</p>
             <p><strong>Job CTC:</strong> {{ drive.job_CTC }}</p>
+            <p><strong>Shared On Date:</strong> {{ drive.creation_date }}</p>
+            <p><strong>Application Link:</strong> <a href="{{ drive.application_link }}" target="_blank">{{ drive.application_link }}</a></p>
+            <p><strong>Upload Resume:</strong> <a href="{{ drive.resume_link }}" target="_blank">{{ drive.resume_link }}</a></p>
+
+
+            <hr>
+
+            <footer>
+                <p class="office_name">Dr. Parminder Kaur</p>
+                <p class="office_name">Head, Training and Placement</p>
+                <p class="office_name">MGM University</p>
+
+                
+            
+            </footer>
 
             <div class="button-container">
                 <a href="{% url 'all-drives' %}" class="link">All Drives</a>
+                {% if request.user.is_authenticated and request.user.user_type == 'TNP-Office' %}
+
                 <a href="{% url 'update-drive' drive.drive_id %}" class="link">Update</a>
-                <a href="{% url 'delete-drive' drive.drive_id %}" class="link">Delete</a>
-                <a href="#" class="link">Download</a>
-            </div>       
+                <a href="{% url 'delete-drive' drive.drive_id %}" class="link" id="deleteButton">Delete</a>
+                {% endif %}
+
+                <a href="{% url 'download_drive_pdf' drive.drive_id %}" class="link",id="downloadButton" >Download</a>
+                {% if request.user.is_authenticated and request.user.user_type == 'Student' %}
+                <a href="{% url 'apply_drive' drive.drive_id %}" class="link">Apply Now</a>
+                {% endif %}
+                {% if request.user.is_authenticated and request.user.user_type == 'Coordinator' %}
+
+                <a href="{% url 'drive_applied_students' drive.drive_id %}" class="link">View Applied Students</a>
+
+                {% endif %}
+
+
+            </div>     
+            
+            
         </div>
     </div>
+ 
 
 {% endblock content %}

@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
 from pathlib import Path,os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -67,6 +66,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'notices.context_processors.sidebar_profile',
+
             ],
         },
     },
@@ -85,6 +86,7 @@ DATABASES = {
     }
 }
 
+# Configure pdfkit
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -121,14 +123,23 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-MEDIA_URL = '/images/'
+MEDIA_URL = '/media/'  # Use a separate URL path for media
+
+# Media files configuration
+MEDIA_ROOT = BASE_DIR / 'media'  # Store media files in a dedicated directory
+
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# Default primary key field type
+# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = "users.CustomUser"

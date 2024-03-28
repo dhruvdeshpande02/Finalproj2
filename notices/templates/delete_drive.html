@@ -4,7 +4,7 @@
     <div class="delete_container">
         <form method="post">
             {% csrf_token %}
-            <p>Are you sure you want to delete "{{drive.title}}"?</p>
+            <p class="delete_p">Are you sure you want to delete "{{drive.title}}"?</p>
             <div class="delete_button_container">
                 <a class="Cancel_button" href="{% url 'all-drives' %}"> Cancel </a>
                 <button type="submit" class="btn btn-submit">Yes, Sure</button>

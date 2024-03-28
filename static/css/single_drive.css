@@ -108,7 +108,7 @@ hr {
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 10px 10px 200px rgba(0, 0, 0, 0.9);
+    box-shadow: 10px 10px 200px rgba(0, 110, 220, 0.901);
     overflow: hidden;
     /* Prevent box shadow from overflowing */
     box-sizing: border-box;
