@@ -14,12 +14,35 @@
 <body>
     <nav class="sidebar">
         <header>
-          
-                <div class="text logo-text">
-                    <span class="name">Aarti Pentawar</span>
-                    <span class="profession">T&P Admin</span>
-                </div>
-            </div>
+        <!-- <div class="profile-picture-placeholder">
+
+            {% if user_profile.Profile_photo %}
+            <img src="{{ user_profile.Profile_photo.url }}" alt="Profile Picture" class="profile-picture-placeholder" />
+            {% else %}
+            Placeholder profile picture 
+            <img src="{% static 'path_to_placeholder_image.jpg' %}" alt="Placeholder Profile Picture" class="profile-picture" />
+            {% endif %}
+        </div>     -->
+            <div class="text logo-text">
+                <span class="name">
+                    {% if request.user.student %}
+                    {{ request.user.student.FIRST_NAME }}
+                    {{ request.user.student.PRN }}
+
+                  {% elif request.user.coordinator %} 
+                  {{ request.user.coordinator.NAME }}
+                  {{ request.user.coordinator.C_ID }}
+
+                  {% elif request.user.tnpoffice %} 
+                  {{ request.user.tnpoffice.NAME }} 
+                  {{ request.user.tnpoffice.T_ID }} 
+
+
+                  {% endif %}
+
+                </span>
+                <span class="profession">{{ request.user.user_type }}</span>
+              </div>
         </header>
         <div class="menu-bar">
             <div class="menu">
@@ -28,37 +51,55 @@
                     <input type="text" placeholder="Search...">
                 </li>
                 <ul class="menu-links">
-                    <li class="nav-link">
+                    
+
+                    <li class="nav-link {% if request.path == '/dashboard/' %}active-link{% endif %}">
                         <a href="{% url 'dashboard' %}">
                             <i class='bx bx-home-alt icon' ></i>
                             <span class="text nav-text">Dashboard</span>
                         </a>
                     </li>
-                    <li class="nav-link">
+                   
+                    <li class="nav-link {% if request.path == '/all-drives/' %}active-link{% endif %}">
                         <a href="{% url 'all-drives' %}">
-                            <i class='bx bxs-collection icon' ></i>
+                            <i class='bx bxs-megaphone icon' ></i>
                             <span class="text nav-text">Drives</span>
                         </a>
                     </li>
-                    <li class="nav-link">
+                    <li class="nav-link {% if request.path == '/activities/' %}active-link{% endif %}">
                         <a href="{% url 'activities' %}">
                             <i class='bx bxs-collection icon'></i>
-                            <span class="text nav-text">Activity</span>
+                            <span class="text nav-text">Activities</span>
                         </a>
                     </li>
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bxs-data icon' ></i>
-                            <span class="text nav-text">Student DB</span>
+                    {% if request.user.is_authenticated and request.user.user_type == 'Student' %}
+
+                    <li class="nav-link {% if request.path == '/dashboard/' %}active-link{% endif %}">
+                        <a href="{% url 'my_applied_drives' %}">
+                            <i class='bx bx-folder-open icon' ></i>
+                            <span class="text nav-text">Applications</span>
                         </a>
                     </li>
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bxs-data icon' ></i>
-                            <span class="text nav-text">Coordinator DB</span>
+                    {% endif %}
+                    {% if request.user.is_authenticated and request.user.user_type != 'Student' %}
+
+                    <li class="nav-link {% if request.path == '/dashboard/' %}active-link{% endif %}">
+                        <a href="{% url 'all_students' %}">
+                            <i class='bx bxs-user-account icon' ></i>
+                            <span class="text nav-text">Students</span>
                         </a>
                     </li>
-                </ul>
+                    {% endif %}
+                    {% if request.user.is_authenticated and request.user.user_type == 'TNP-Office' %}
+
+                    <li class="nav-link {% if request.path == '/dashboard/' %}active-link{% endif %}">
+                        <a href="{% url 'all_coordinators' %}">
+                            <i class='bx bxs-id-card icon' ></i>
+                            <span class="text nav-text">Coordinators</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul> 
             </div>
             <div class="bottom-content">
                 <li class="">
@@ -74,7 +115,7 @@
                     </a>
                 </li>
                 <li class="">
-                    <a href="#">
+                    <a href="{% url 'logout' %}">
                         <i class='bx bx-log-out icon' ></i>
                         <span class="text nav-text">Logout</span>
                     </a>

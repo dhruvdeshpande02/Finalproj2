@@ -8,15 +8,14 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    border-width: 3cm;
-    border-color: rgb(255, 51, 51);
+
 }
 
 :root {
     /* Colors  */
-    --body-color: red;
+    /* --body-color: red; */
     --sidebar-color: #FFF;
-    --primary-color: black;
+    --primary-color: rgba(77, 148, 218, 0.742);
     --primary-color-light: #F6F5FF;
     --toggle-color: #DDD;
     --text-color: black;
@@ -89,10 +88,10 @@ body.dark {
     align-items: center;
     justify-content: center;
     font-size: 20px;
+    color: rgba(77, 148, 218, 0.742);
 }
 
-.sidebar .text,
-.sidebar .icon {
+.sidebar .text {
     color: var(--text-color);
     transition: var(--tran-03);
 }
@@ -119,11 +118,13 @@ body.dark {
 }
 
 .sidebar header .logo-text {
+
     display: flex;
     flex-direction: column;
 }
 
 header .image-text .name {
+
     margin-top: 2px;
     font-size: 18px;
     font-weight: 600;
@@ -319,7 +320,6 @@ body.dark .switch::before {
     left: 250px;
     height: 100vh;
     width: calc(100% - 250px);
-    background-color: var(--body-color);
     transition: var(--tran-05);
 }
 

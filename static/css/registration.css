@@ -1,28 +1,18 @@
 body {
-
-    background-image: url("static/images/blueimg.jpg");
-    background-size: cover;
-}
-
-.background-wrapper {
-    background-color: rgba(105, 104, 104, 0.611);
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #f4d7d76f;
 }
 
-
 .title-box {
-    background-color: rgba(44, 58, 60, 0.14);
-    color: white;
+    color: black;
     padding: 10px;
-    border-radius: 5px;
     text-align: center;
     margin-bottom: 20px;
-    width: fit-content;
     margin: 0 auto;
     /* Center horizontally */
-    margin-bottom: 10px;
+    margin-bottom: 40px;
     cursor: pointer;
 }
 
@@ -31,6 +21,8 @@ body {
     font-size: 24px;
     margin-bottom: 10px;
     /* Add margin to separate the button from the title */
+    font-family: 'Times New Roman', Times, serif;
+
 }
 
 
@@ -47,8 +39,9 @@ body {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
-    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.9);
-    /* Increased shadow */
+    box-shadow: 0 20px 34px rgba(77, 148, 218, 0.742);
+    background-color: #fff;
+
 
 }
 
@@ -70,6 +63,9 @@ body {
 .reg-form-group label {
     margin-bottom: 5px;
     font-weight: bold;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+
 }
 
 .reg-form-group input,
@@ -78,11 +74,13 @@ body {
     width: calc(100%-5px);
     /* Adjust width and gap as needed */
     padding: 10px;
-    border: 1px solid black;
+    border: 2px solid black;
     border-radius: 5px;
     border-width: 1px;
     flex-grow: 1;
-    background-color: rgba(118, 118, 99, 0.336);
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+
 }
 
 .reg-form-group input:last-child,
@@ -95,15 +93,19 @@ body {
 .register-btn {
     width: 100%;
     text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .register-btn button {
     padding: 10px 20px;
-    background-color: rgba(176, 224, 230, 0.704);
-    color: black;
+    background-color: black;
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-family: 'Times New Roman', Times, serif;
+
 }
 
 .register-btn button:hover {

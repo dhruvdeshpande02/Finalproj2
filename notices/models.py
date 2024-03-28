@@ -1,22 +1,22 @@
 from django.db import models
+
 # Create your models here.
-from django.db import models
+
 
 # Create your models here.
 class Department(models.Model):
     name = models.CharField(max_length=100)
     id = models.AutoField(primary_key=True)
 
-
     def __str__(self):
         return self.name
 
 class Drive(models.Model):
 
-     
+    Reference_no = models.CharField(max_length=100)     
     title = models.CharField(max_length=100)
     company_name = models.CharField(max_length=30)
-    company_logo = models.ImageField(null=True,blank=True)
+    company_logo = models.ImageField(null=True,blank=True,upload_to='logos/')
     date = models.DateField()
     content = models.TextField()
     Bond = models.CharField(max_length=50)
@@ -29,8 +29,8 @@ class Drive(models.Model):
     job_CTC = models.CharField(max_length=50)
     creation_date = models.DateTimeField(auto_now_add=True)
     drive_id = models.AutoField(primary_key=True)
-
-
+    application_link = models.CharField(max_length=100,null=True,blank=True)
+    resume_link = models.CharField(max_length=200, blank=True)
     def __str__(self):
         return self.title
     class Meta:
@@ -39,7 +39,8 @@ class Drive(models.Model):
 
 from django.db import models
 
-class Activity(models.Model):        
+class Activity(models.Model):      
+    Reference_no = models.CharField(max_length=100)  
     activity_id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=100)
     company_logo = models.ImageField(null=True,blank=True)
@@ -54,3 +55,4 @@ class Activity(models.Model):
         return self.title
     class Meta:
         ordering = ['creation_date']
+

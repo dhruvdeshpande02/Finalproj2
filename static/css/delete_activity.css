@@ -11,20 +11,29 @@
     border-radius: 5px;
     overflow: hidden;
     box-sizing: border-box;
-    width: auto;
+    width: 600px;
+    height: 300px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.9);
 }
 
-.delete_p {
+.delete_container:hover {
+    box-shadow: 0 20px 34px rgba(77, 148, 218, 0.744);
+
+}
+
+p .delete_p {
     text-align: center;
     margin-bottom: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    font-size: large;
 }
 
 .delete_button_container {
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin-top: 20px;
+    margin-top: 50px;
     align-items: center;
     /* Center items horizontally */
 }
